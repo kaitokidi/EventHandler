@@ -80,6 +80,9 @@ class EventHandler {
 		void setActionKey_k(sf::Keyboard::Key key, int id);
 		void setActionKey_m(sf::Mouse::Button but, int id);
 		
+        void setMovementMargin(float n);
+        void setMovementReference(sf::Vector2f p);
+        void setMovementReference(float x, float y);
 		
 		//getters
 		//setXbuttonk_m_j
@@ -87,34 +90,43 @@ class EventHandler {
 		
 	private:		
 
-		dir k_dir;
-		dir m_dir;
-		dir j_dir;
-		
-		edir k_edir;
-		edir m_edir;
-		edir j_edir;
+        void mouseInit();
+        void keyboardInit();
+        void joystickInit(){ }
 
+        dir j_dir;
+        edir j_edir;
 		int fireBut_j;
 		int jumpBut_j;
+		std::vector<bool> actionActivated_j;
 		std::vector<int> actionBut_j;
 		
+        dir k_dir;
+        edir k_edir;
 		sf::Keyboard::Key fireKey_k;
 		sf::Keyboard::Key jumpKey_k;
 		std::vector<bool> actionActivated_k;
+        std::vector<sf::Keyboard::Key> dirKeys;
+        std::vector<sf::Keyboard::Key> edirKeys;
 		std::vector<sf::Keyboard::Key> actionKey_k;
 		
+        dir m_dir;
+        edir m_edir;
+        float movementMargin;
 		sf::Mouse::Button fireBut_m;
 		sf::Mouse::Button jumpBut_m;		
+        sf::Vector2f movementReference;
+        sf::Mouse::Button movementButton_m;
 		std::vector<bool> actionActivated_m;
 		std::vector<sf::Mouse::Button> actionBut_m;
 		
 		bool haveFocus;
 		bool fireActivated;
 		bool jumpActivated;
-		
-		std::vector<sf::Keyboard::Key> dirKeys;
-		std::vector<sf::Keyboard::Key> edirKeys;
+
+        bool keysEnabled;
+        bool mouseEnabled;
+        bool joystickEnabled;
 	
 };
 
