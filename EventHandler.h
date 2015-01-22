@@ -98,8 +98,8 @@ class EventHandler {
         edir j_edir;
 		int fireBut_j;
 		int jumpBut_j;
+        std::vector<int> actionBut_j;
 		std::vector<bool> actionActivated_j;
-		std::vector<int> actionBut_j;
 		
         dir k_dir;
         edir k_edir;
